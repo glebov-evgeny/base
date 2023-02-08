@@ -2,6 +2,8 @@
 
 export default {
   debug: true,
+  ssr: true,
+  target: 'static',
   head: {
     title: 'test',
     meta: [
@@ -48,6 +50,7 @@ export default {
     '@nuxtjs/robots',
     '@nuxtjs/redirect-module',
     'vue2-editor/nuxt',
+    '@nuxtjs/i18n',
   ],
 
   /* router: {
@@ -64,6 +67,29 @@ export default {
 
   build: {
     postcss: false,
+  },
+
+  router: {
+    base: '/base/',
+  },
+
+  i18n: {
+    defaultLocale: 'ru',
+    locales: [
+      {
+        code: 'ru',
+        iso: 'ru-RU',
+        // domain: localeDomains.ru
+      },
+      {
+        code: 'en',
+        iso: 'en-US',
+        // domain: localeDomains.en
+      },
+    ],
+    differentDomains: false,
+    vueI18nLoader: true,
+    detectBrowserLanguage: false,
   },
 
   publicRuntimeConfig: {
