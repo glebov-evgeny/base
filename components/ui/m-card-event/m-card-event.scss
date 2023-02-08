@@ -1,0 +1,133 @@
+@import '@/assets/styles/tools/mixins';
+/* stylelint-disable no-descending-specificity */
+
+.m-card-event {
+  @include _768 {
+    padding: var(--a-padding-x8);
+  }
+
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--a-padding-x4);
+  color: var(--color-text);
+  background: var(--color-lightblue);
+  border-radius: var(--border-radius-x1);
+  transition: 0.2s;
+  &:nth-child(odd) {
+    &::before {
+      content: '';
+      position: absolute;
+      right: rem(-100);
+      bottom: calc(-100% + rem(100));
+      width: rem(200);
+      height: 100%;
+      background: #e9f4ff;
+      border-radius: rem(100);
+      transition: 0.3s;
+    }
+  }
+  &:nth-child(even) {
+    &::before {
+      content: '';
+      position: absolute;
+      left: calc(-100% + rem(250));
+      bottom: rem(-100);
+      width: 100%;
+      height: rem(200);
+      background: #e9f4ff;
+      border-radius: rem(100);
+      transition: 0.3s;
+    }
+  }
+  &:hover {
+    color: var(--color-bg);
+    background: var(--color-blue);
+    transform: scale(1.02);
+    .m-card-event__button {
+      color: var(--color-text);
+      background: var(--color-bg);
+      border: 1px solid var(--color-bg);
+    }
+    &:nth-child(odd) {
+      &::before {
+        bottom: 0;
+        background: #3b96c9;
+      }
+    }
+    &:nth-child(even) {
+      &::before {
+        left: 0;
+        background: #3b96c9;
+      }
+    }
+  }
+  &__title {
+    @include _1200 {
+      margin-bottom: rem(56);
+      font-size: rem(26);
+    }
+
+    position: relative;
+    margin-bottom: rem(48);
+    font-size: rem(22);
+    line-height: 135%;
+  }
+  &__format {
+    @include _1200 {
+      font-size: rem(22);
+    }
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    font-size: rem(20);
+    line-height: 135%;
+    span {
+      font-weight: 500;
+    }
+  }
+
+  &__date {
+    @include _1200 {
+      font-size: rem(22);
+    }
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: rem(20);
+    font-size: rem(20);
+    line-height: 135%;
+    span {
+      font-weight: 500;
+    }
+  }
+  &__button {
+    @include _1200 {
+      max-width: rem(175);
+      min-height: rem(45);
+      margin: rem(36) 0 0;
+      font-size: rem(18);
+    }
+
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: rem(125);
+    min-height: rem(40);
+    margin: rem(24) 0 0;
+    border: 1px solid var(--color-text);
+    border-radius: var(--border-radius-x1);
+    font-size: rem(16);
+    font-weight: 500;
+    line-height: 100%;
+  }
+}
+/* stylelint-enable no-descending-specificity */

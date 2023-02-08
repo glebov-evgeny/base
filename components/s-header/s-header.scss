@@ -1,0 +1,125 @@
+@import '@/assets/styles/tools/mixins';
+
+.s-header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-white);
+  &__container {
+    @include _768 {
+      padding: rem(15) rem(20);
+    }
+
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: rem(5) rem(15);
+    background-color: var(--color-white);
+  }
+  &__links {
+    @include _768 {
+      position: unset;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 0;
+      transform: unset;
+    }
+
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: rem(20) rem(10);
+    background-color: var(--color-white);
+    transform: translate(-100%);
+    &.active {
+      z-index: 1;
+      transform: translate(0);
+    }
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transform: translateX(rem(10));
+    .ham {
+      cursor: pointer;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      transition: transform 0.5s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .hamRotate.active {
+      transform: rotate(45deg);
+    }
+    .hamRotate180.active {
+      transform: rotate(180deg);
+    }
+    .line {
+      transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+      fill: none;
+      stroke: var(--color-text);
+      stroke-width: 6.5;
+      stroke-linecap: round;
+    }
+    .hamR .top {
+      stroke-dasharray: 40 121;
+    }
+    .hamR .bottom {
+      stroke-dasharray: 40 121;
+    }
+    .hamR.active .top {
+      stroke-dashoffset: -68px;
+    }
+    .hamR.active .bottom {
+      stroke-dashoffset: -68px;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    margin-right: rem(44);
+    @media screen and (max-width: 1199px) {
+      max-width: rem(244);
+      margin-right: rem(32);
+    }
+    @media screen and (max-width: 767px) {
+      max-width: rem(131);
+      margin-right: 0;
+    }
+  }
+
+  &__btn {
+    @include _768 {
+      max-width: rem(125);
+      margin: 0;
+    }
+    @include _1200 {
+      max-width: rem(200);
+    }
+
+    max-width: rem(350);
+    margin: rem(20) auto 0;
+  }
+  &__overlay {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
+}

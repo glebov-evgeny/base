@@ -1,0 +1,26 @@
+@import '@/assets/styles/tools/mixins';
+
+.m-menu {
+  &__link {
+    @include _768 {
+      margin-right: rem(10);
+      margin-bottom: 0;
+      padding: 0;
+    }
+    @include _1200 {
+      margin-right: rem(25);
+      font-size: rem(18);
+    }
+
+    display: flex;
+    margin-bottom: rem(5);
+    padding: rem(10) 0;
+    font-size: rem(16);
+    font-weight: 500;
+  }
+  &__list {
+    @include _768 {
+      display: flex;
+    }
+  }
+}
