@@ -5,7 +5,7 @@ body {
 
 body {
   overflow-x: unset;
-  background-color: var(--color-body);
+  background-color: var(--color-white);
   font-family: 'TT Norms', sans-serif;
   font-size: 16px;
 }
@@ -28,66 +28,21 @@ a {
   width: .5rem;
 }
 
-:root {
-  --layout-width: 100%;
-  --layout-padding: 5rem; // 80px
-  --layout-v-padding: 3.75rem; // 60px
-
-  @media all and (min-width: 1440px) {
-    --layout-width: 90rem; // 1440px
-  }
-}
-
-.l-default,
-.l-wide {
-  max-width: var(--layout-width);
-  margin: 0 auto;
-  transition: max-width 0.6s ease;
-}
-
-.s-padding {
-  padding: var(--a-padding-x10) var(--a-padding-x4);
-
-  @media screen and (min-width: 768px) {
-    padding: var(--a-padding-x12) var(--a-padding-x8);
-  }
-
-  @media screen and (min-width: 1140px) {
-    padding: var(--a-padding-x15) var(--a-padding-x17);
-  }
-}
-
-.s-margin {
-  margin: 0 auto;
-
-  @media screen and (min-width: 768px) {
-    margin: 1.5rem auto;
-  }
-
-  @media screen and (min-width: 1140px) {
-    margin: 2.5rem auto;
-  }
-}
-
-// stylelint-disable-next-line
-#__nuxt {
-  height: 100%;
-}
-
 .s-layout {
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-height: 100vh;
 }
 
 .s-main {
   flex: 1 auto;
   width: 100%;
-  min-height: calc(100vh - 3.15rem - 25rem);
-  margin-top: 3.15rem;
+  margin-top: 10rem;
+  background: #decff0;
   @media screen and (min-width: 768px) {
-    min-height: calc(100vh - 4.35rem - 16.05rem);
-    margin-top: 4rem;
+    // min-height: calc(100vh - 4.35rem - 16.05rem);
+    // margin-top: 4rem;
   }
 }
 
@@ -109,59 +64,3 @@ a {
   }
 }
 
-.s-border {
-  @media screen and (min-width: 768px) {
-    border-radius: var(--border-radius-x3);
-  }
-}
-
-// .lander-message {
-//   position: fixed;
-//   z-index: 9000;
-//   top: 0;
-//   right: 0;
-//   width: auto;
-//   padding: var(--a-padding-x6);
-//   color: var(--color-text-contrast);
-//   background: var(--color-bg-tertiary);
-
-//   &-item {
-//     margin-bottom: var(--a-padding-x1);
-
-//     strong {
-//       width: 50%;
-//     }
-
-//     span {
-//       margin-left: var(--a-padding-x3);
-//     }
-//   }
-
-//   &-close {
-//     position: absolute;
-//     top: var(--a-padding-x1);
-//     right: var(--a-padding-x4);
-//     cursor: pointer;
-
-//     &::after {
-//       content: '\2715';
-//     }
-//   }
-
-//   @media screen and (min-width: 1140px) {
-//     font-size: 3rem;
-//     font-weight: 500;
-//     line-height: 3.25rem;
-//   }
-// }
-
-
-.container {
-  padding: 0 0.9375rem;
-  @media screen and (min-width: 768px) {
-    padding: 0 1.25rem;
-  }
-  @media screen and (min-width: 1200px) {
-    padding: 0 3rem;
-  }
-}

@@ -5,15 +5,12 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
-      eventsAll: [],
+      description: '',
     };
   },
-  methods: {
-
-  },
+  methods: {},
 };
 </script>

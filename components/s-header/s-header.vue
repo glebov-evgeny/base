@@ -9,13 +9,8 @@
       <div class="s-header__links" :class="{ active: isOpen }">
         <m-menu :items="links" />
 
-          <a-button
-          class="s-header__btn"
-          bgColor="bordered"
-          size="medium"
-          label="Войти"
-          @click="callOpenedPopup" />
-
+        <a-button class="s-header__btn" bgColor="bordered" size="medium" label="Войти" @click="callOpenedPopup" />
+        <button @click="changeThemes" class="header__themes header__btn" type="button">zzz</button>
       </div>
       <div class="s-header__menu" v-if="isMobile" @click="toggleIsOpenField">
         <svg class="ham hamRotate hamR" viewBox="0 0 100 100" width="40" ref="ham" :class="[{ active: isOpen }]">
@@ -93,6 +88,9 @@ export default {
       } else {
         this.isShow = false;
       }
+    },
+    changeThemes(event) {
+      this.$emit('handler-change-themes', event);
     },
     toggleIsOpenField() {
       this.isOpen = !this.isOpen;
