@@ -5,7 +5,7 @@ export default {
   ssr: true,
   target: 'static',
   head: {
-    title: 'test',
+    title: 'Glebov Evgeny Frontend Developer',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -24,6 +24,10 @@ export default {
       },
       { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
     ],
+    pageTransition: {
+      name: 'layout',
+      mode: 'out-in',
+    },
   },
 
   css: [

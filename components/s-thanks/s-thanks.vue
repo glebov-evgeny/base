@@ -9,7 +9,8 @@
       <div class="s-thanks__image --compact" v-else></div>
       <div class="s-thanks__container s-thanks__top-content l-wide" :class="{ '--full': content == null }">
         <h1 class="s-thanks__title s-title">
-          Поздравляем! Ты успешно зарегистрировался на {{ content !== null ? content.name : 'мероприятие' }}
+          Поздравляем! {{ $t('login') }} Ты успешно зарегистрировался на
+          {{ content !== null ? content.name : 'мероприятие' }}
         </h1>
         <div class="s-thanks__navigation">
           <a-button
@@ -94,3 +95,4 @@ export default {
   },
 };
 </script>
+<i18n lang="json" src="./s-thanks.json" />

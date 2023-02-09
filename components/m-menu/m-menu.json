@@ -1,0 +1,14 @@
+{
+  "ru": {
+    "items": [
+      { "id": 1, "text": "Обо мне", "tagetClass": "thanks" },
+      { "id": 2, "text": "Опыт работы", "tagetClass": "/" }
+    ]
+  },
+  "en": {
+    "items": [
+      { "id": 1, "text": "About", "tagetClass": "/en/thanks" },
+      { "id": 2, "text": "Work experience", "tagetClass": "/en" }
+    ]
+  }
+}

@@ -1,58 +1,72 @@
 @import '@/assets/styles/tools/mixins';
 
 .s-header {
+  @include _992 {
+    padding: rem(15) 0;
+  }
+
   position: fixed;
   z-index: 10;
   top: 0;
+  right: 0;
   left: 0;
   width: 100%;
-  background-color: #c9b3b3;
+  padding: rem(5) 0;
+  background: var(--color-yellow);
+  transition: 0.3s;
   &__container {
-    @include _768 {
-      padding: rem(15) rem(20);
-    }
-
-    position: relative;
-    z-index: 5;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: rem(5) rem(15);
-    background-color: #c9b3b3;
+  }
+  &__logo {
+    &-image {
+      @include _992 {
+        max-width: rem(50);
+      }
+
+      max-width: rem(35);
+    }
   }
   &__links {
     @include _768 {
       position: unset;
       flex-direction: row;
-      justify-content: space-between;
       align-items: center;
       width: 100%;
+      height: auto;
       padding: 0;
-      transform: unset;
+      border-radius: 0;
     }
 
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    z-index: 10;
+    top: 50px;
     right: 0;
     left: 0;
     display: flex;
+    overflow: hidden;
     flex-direction: column;
-    padding: rem(20) rem(10);
-    background-color: #c9b3b3;
-    transform: translate(-100%);
+    height: 0;
+    padding: 0 rem(16);
+    background: var(--color-yellow);
+    border-radius: 0 0 15px 15px;
+    transition: 0.3s;
     &.active {
-      z-index: 1;
-      transform: translate(0);
+      @include _768 {
+        height: auto;
+      }
+
+      height: rem(200);
     }
   }
-
   &__menu {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-shrink: 0;
     transform: translateX(rem(10));
-    .ham {
+    flex-shrink: 0;
+    &-burger {
       cursor: pointer;
       -moz-user-select: none;
       -webkit-user-select: none;
@@ -60,66 +74,108 @@
       user-select: none;
       transition: transform 0.5s;
       -webkit-tap-highlight-color: transparent;
-    }
-    .hamRotate.active {
-      transform: rotate(45deg);
-    }
-    .hamRotate180.active {
-      transform: rotate(180deg);
-    }
-    .line {
-      transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-      fill: none;
-      stroke: #000;
-      stroke-width: 6.5;
-      stroke-linecap: round;
-    }
-    .hamR .top {
-      stroke-dasharray: 40 121;
-    }
-    .hamR .bottom {
-      stroke-dasharray: 40 121;
-    }
-    .hamR.active .top {
-      stroke-dashoffset: -68px;
-    }
-    .hamR.active .bottom {
-      stroke-dashoffset: -68px;
+      .line {
+        transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+        fill: none;
+        stroke: var(--color-second);
+        stroke-width: 6.5;
+        stroke-linecap: round;
+      }
+      .top {
+        stroke-dasharray: 40 121;
+      }
+      .bottom {
+        stroke-dasharray: 40 121;
+      }
+      &.active {
+        transform: rotate(45deg);
+        .top {
+          stroke-dashoffset: -68px;
+        }
+        .bottom {
+          stroke-dashoffset: -68px;
+        }
+      }
     }
   }
+  &__actions {
+    @include _768 {
+      margin: 0;
+      &.--compact {
+        display: none;
+      }
+    }
 
-  &__logo {
     display: flex;
-    margin-right: rem(44);
-    @media screen and (max-width: 1199px) {
-      max-width: rem(244);
-      margin-right: rem(32);
+    align-items: center;
+    margin-right: rem(-16);
+    margin-left: auto;
+  }
+  &__theme {
+    @include _768 {
+      margin: 0 rem(8);
     }
-    @media screen and (max-width: 767px) {
-      max-width: rem(131);
-      margin-right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: rem(30);
+    height: rem(30);
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    &-icon {
+      path,
+      rect {
+        fill: var(--color-second);
+      }
     }
   }
+  &__lang {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: rem(30);
+    height: rem(30);
+    background: transparent;
+    border: none;
+    outline: none;
+    &-icon {
+      @include _768 {
+        font-size: rem(18);
+      }
 
+      color: var(--color-second);
+      font-weight: 500;
+    }
+  }
   &__btn {
     @include _768 {
       max-width: rem(125);
-      margin: 0;
+      min-height: rem(40);
+      margin-top: 0;
+      margin-left: rem(16);
+      font-size: rem(18);
     }
-    @include _1200 {
+    @include _992 {
       max-width: rem(200);
+      min-height: rem(50);
+      font-size: rem(20);
     }
 
-    max-width: rem(350);
-    margin: rem(20) auto 0;
+    margin-top: rem(16);
+    color: var(--color-main);
+    background: var(--color-second);
   }
   &__overlay {
     position: fixed;
-    z-index: 1;
+    z-index: 8;
     top: 0;
+    right: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    bottom: 0;
+    // background: #fff;
+    backdrop-filter: blur(6px);
   }
 }

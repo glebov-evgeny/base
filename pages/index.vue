@@ -1,6 +1,11 @@
 <template>
   <main class="s-main">
-    <p>...</p>
+    <s-dump />
+    <s-dump2 />
+    <s-dump />
+    <s-dump2 />
+    <s-dump />
+    <s-dump2 />
   </main>
 </template>
 

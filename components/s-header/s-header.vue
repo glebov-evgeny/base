@@ -1,19 +1,74 @@
 <template>
   <header class="s-header" id="header">
-    <div class="s-header__container l-wide">
+    <div class="s-header__container container">
       <div class="s-header__logo">
-        <a href="#" target="_blank">
-          <p>zzz</p>
+        <a href="https://github.com/glebov-evgeny" target="_blank" class="s-header__logo-link">
+          <img class="s-header__logo-image" src="/images/logo.svg" alt="logo" />
         </a>
       </div>
-      <div class="s-header__links" :class="{ active: isOpen }">
-        <m-menu :items="links" />
 
-        <a-button class="s-header__btn" bgColor="bordered" size="medium" label="Войти" @click="callOpenedPopup" />
-        <button @click="changeThemes" class="header__themes header__btn" type="button">zzz</button>
+      <div class="s-header__links" :class="{ active: isOpen }">
+        <m-menu />
+        <div class="s-header__actions" v-if="!isMobile">
+          <button @click="changeThemes" class="s-header__theme" type="button">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="s-header__theme-icon"
+            >
+              <g clip-path="url(#clip0_578_178)">
+                <path
+                  d="M12 18C10.4087 18 8.88258 17.3679 7.75736 16.2426C6.63214 15.1174 6 13.5913 6 12C6 10.4087 6.63214 8.88258 7.75736 7.75736C8.88258 6.63214 10.4087 6 12 6C13.5913 6 15.1174 6.63214 16.2426 7.75736C17.3679 8.88258 18 10.4087 18 12C18 13.5913 17.3679 15.1174 16.2426 16.2426C15.1174 17.3679 13.5913 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.515 4.929L4.929 3.515L7.05 5.636L5.636 7.05L3.515 4.93V4.929ZM16.95 18.364L18.364 16.95L20.485 19.071L19.071 20.485L16.95 18.364ZM19.071 3.514L20.485 4.929L18.364 7.05L16.95 5.636L19.071 3.515V3.514ZM5.636 16.95L7.05 18.364L4.929 20.485L3.515 19.071L5.636 16.95ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_578_178">
+                  <rect width="24" height="24" />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+          <button class="s-header__lang" @click="toggleLanguage">
+            <nuxt-link v-if="langToggler" :to="switchLocalePath('en')" class="s-header__lang-icon">EN</nuxt-link>
+            <nuxt-link v-else :to="switchLocalePath('ru')" class="s-header__lang-icon">RU</nuxt-link>
+          </button>
+        </div>
+        <button class="btn s-header__btn">{{ $t('login') }}</button>
       </div>
+
+      <div class="s-header__actions --compact">
+        <button @click="changeThemes" class="s-header__theme" type="button">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="s-header__theme-icon"
+          >
+            <g clip-path="url(#clip0_578_178)">
+              <path
+                d="M12 18C10.4087 18 8.88258 17.3679 7.75736 16.2426C6.63214 15.1174 6 13.5913 6 12C6 10.4087 6.63214 8.88258 7.75736 7.75736C8.88258 6.63214 10.4087 6 12 6C13.5913 6 15.1174 6.63214 16.2426 7.75736C17.3679 8.88258 18 10.4087 18 12C18 13.5913 17.3679 15.1174 16.2426 16.2426C15.1174 17.3679 13.5913 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.515 4.929L4.929 3.515L7.05 5.636L5.636 7.05L3.515 4.93V4.929ZM16.95 18.364L18.364 16.95L20.485 19.071L19.071 20.485L16.95 18.364ZM19.071 3.514L20.485 4.929L18.364 7.05L16.95 5.636L19.071 3.515V3.514ZM5.636 16.95L7.05 18.364L4.929 20.485L3.515 19.071L5.636 16.95ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_578_178">
+                <rect width="24" height="24" />
+              </clipPath>
+            </defs>
+          </svg>
+        </button>
+        <button class="s-header__lang" @click="toggleLanguage">
+          <nuxt-link v-if="langToggler" :to="switchLocalePath('en')" class="s-header__lang-icon">EN</nuxt-link>
+          <nuxt-link v-else :to="switchLocalePath('ru')" class="s-header__lang-icon">RU</nuxt-link>
+        </button>
+      </div>
+
       <div class="s-header__menu" v-if="isMobile" @click="toggleIsOpenField">
-        <svg class="ham hamRotate hamR" viewBox="0 0 100 100" width="40" ref="ham" :class="[{ active: isOpen }]">
+        <svg class="s-header__menu-burger" viewBox="0 0 100 100" width="40" ref="ham" :class="[{ active: isOpen }]">
           <path
             class="line top"
             d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"
@@ -26,7 +81,6 @@
         </svg>
       </div>
     </div>
-    <div class="s-header__overlay" v-if="isOpen && isMobile" @click="toggleIsOpenField"></div>
   </header>
 </template>
 
@@ -35,30 +89,23 @@ import './s-header.scss';
 
 export default {
   name: 's-header',
+  props: {
+    isOpen: {
+      type: Boolean,
+      default: null,
+    },
+    isMobile: {
+      type: Boolean,
+      default: null,
+    },
+  },
   data() {
     return {
-      isOpen: null,
-      isMobile: null,
+      langToggler: true,
       isScrolled: null,
       scrollTop: null,
-      links: [
-        { id: 1, text: 'О проекте', tagetClass: 's-1' },
-        { id: 2, text: 'Партнеры', tagetClass: 's-2' },
-        // { id: 3, text: 'Профессии', tagetClass: 's-whom' },
-      ],
-      windowWidth: null,
-      mobileBreakPoint: 768,
-      user: {
-        avatar: '/images/placeimg_110_110_people1.svg',
-      },
       isShow: false,
     };
-  },
-
-  computed: {
-    isMainPage() {
-      return this.$route.name === 'index';
-    },
   },
 
   watch: {
@@ -66,18 +113,12 @@ export default {
       const htmlWrapper = document.querySelector('html');
       htmlWrapper.style.overflowY = this.isOpen ? 'hidden' : 'visible';
     },
-    windowWidth() {
-      this.isMobile = this.windowWidth < this.mobileBreakPoint;
-    },
     fixedBtnShow() {
       this.isShow = this.fixedBtnShow;
     },
   },
 
   methods: {
-    handleResize() {
-      this.windowWidth = window.innerWidth;
-    },
     handleScroll() {
       this.isScrolled = window.scrollY > 0;
       this.showFixedBtnOnScroll();
@@ -92,8 +133,15 @@ export default {
     changeThemes(event) {
       this.$emit('handler-change-themes', event);
     },
+    changeLanguage(lang) {
+      // eslint-disable-next-line no-param-reassign
+      lang.locale = lang.locale === 'ru' ? 'en' : 'ru';
+    },
+    toggleLanguage() {
+      this.langToggler = !this.langToggler;
+    },
     toggleIsOpenField() {
-      this.isOpen = !this.isOpen;
+      this.$emit('toggleIsOpenField');
     },
     scrollToBlock(targetClass) {
       const sections = this.refs ? this.refs : [];
@@ -115,18 +163,13 @@ export default {
 
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll);
-    window.removeEventListener('resize', () => {
-      this.handleResize();
-      this.calculateBodyPadding();
-    });
   },
 
   mounted() {
     this.windowWidth = window.innerWidth;
     window.addEventListener('scroll', this.handleScroll);
-    window.addEventListener('resize', () => {
-      this.handleResize();
-    });
   },
 };
 </script>
+
+<i18n lang="json" src="./s-header.json" />
