@@ -2,7 +2,7 @@
 
 export default {
   debug: true,
-  ssr: true,
+  ssr: false,
   target: 'static',
   head: {
     title: 'Glebov Evgeny Frontend Developer',
@@ -73,9 +73,9 @@ export default {
     postcss: false,
   },
 
-  router: {
-    base: '/base/',
-  },
+  // router: {
+  //   base: '/base/',
+  // },
 
   i18n: {
     defaultLocale: 'ru',
