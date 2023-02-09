@@ -3,7 +3,7 @@
     <div class="s-header__container container">
       <div class="s-header__logo">
         <a href="https://github.com/glebov-evgeny" target="_blank" class="s-header__logo-link">
-          <img class="s-header__logo-image" src="/images/logo.svg" alt="logo" />
+          <img class="s-header__logo-image" src="@/assets/images/logo.svg" alt="logo" />
         </a>
       </div>
 
