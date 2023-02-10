@@ -1,0 +1,22 @@
+@use '~assets/styles/tools/mixins' as *;
+
+.title {
+  margin-bottom: rem(30);
+  font-size: rem(28);
+  line-height: 135%;
+}
+
+.title__section {
+  position: relative;
+  margin-bottom: rem(24);
+  font-family: 'Rubik Mono One', serif;
+  font-size: rem(24);
+  font-weight: 100;
+  @media all and (min-width: 992px) {
+    font-size: rem(40);
+  }
+}
+.description {
+  font-size: rem(18);
+  line-height: 135%;
+}

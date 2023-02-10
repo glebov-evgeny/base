@@ -1,20 +1,13 @@
 <template>
   <main class="s-main">
-    <s-dump />
-    <s-dump2 />
-    <s-dump />
-    <s-dump2 />
-    <s-dump />
-    <s-dump2 />
+    <s-intro />
   </main>
 </template>
 
 <script>
 export default {
   data() {
-    return {
-      description: '',
-    };
+    return {};
   },
   methods: {},
 };

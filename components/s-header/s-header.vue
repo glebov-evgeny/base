@@ -10,6 +10,9 @@
       <div class="s-header__links" :class="{ active: isOpen }">
         <m-menu />
         <div class="s-header__actions" v-if="!isMobile">
+          <a href="tel:+79162176557" class="s-header__phone">
+            <span>8 (916) 217-65-57</span>
+          </a>
           <button @click="changeThemes" class="s-header__theme" type="button">
             <svg
               width="24"
@@ -40,6 +43,9 @@
       </div>
 
       <div class="s-header__actions --compact">
+        <a href="tel:+79162176557" class="s-header__phone">
+          <img class="s-header__phone-image" src="@/assets/images/phone.svg" alt="phone" />
+        </a>
         <button @click="changeThemes" class="s-header__theme" type="button">
           <svg
             width="24"
