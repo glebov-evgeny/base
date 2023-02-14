@@ -39,7 +39,7 @@
             <nuxt-link v-else :to="switchLocalePath('ru')" class="s-header__lang-icon">RU</nuxt-link>
           </button>
         </div>
-        <button class="btn s-header__btn">{{ $t('login') }}</button>
+        <button class="btn s-header__btn" @click="showPopupHandler">{{ $t('login') }}</button>
       </div>
 
       <div class="s-header__actions --compact">
@@ -145,6 +145,9 @@ export default {
     },
     toggleLanguage() {
       this.langToggler = !this.langToggler;
+    },
+    showPopupHandler() {
+      this.$emit('showPopupHandler');
     },
     toggleIsOpenField() {
       this.$emit('toggleIsOpenField');

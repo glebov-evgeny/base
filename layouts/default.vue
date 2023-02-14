@@ -3,12 +3,16 @@
     <s-header
       @handler-change-themes="changeThemes"
       @toggleIsOpenField="toggleIsOpenField"
+      @showPopupHandler="showPopupHandler"
       :isMobile="isMobile"
       :isOpen="isOpen"
     />
     <div class="s-header__overlay" v-if="isOpen && isMobile" @click="toggleIsOpenField"></div>
     <Nuxt />
     <s-footer />
+    <a-popup :visible="showPopup" width="600px" class="s-event__popup" @close="showPopup = false">
+      <m-form />
+    </a-popup>
   </div>
 </template>
 
@@ -16,6 +20,7 @@
 export default {
   data() {
     return {
+      showPopup: false,
       isLightThemes: false,
       isOpen: null,
       isMobile: null,
@@ -32,6 +37,9 @@ export default {
     },
     toggleIsOpenField() {
       this.isOpen = !this.isOpen;
+    },
+    showPopupHandler() {
+      this.showPopup = !this.showPopup;
     },
   },
   watch: {

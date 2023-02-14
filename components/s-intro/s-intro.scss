@@ -3,4 +3,7 @@
 .s-intro {
   padding: var(--a-padding-x4) 0;
   background: #eee;
+  &__container {
+    opacity: 0;
+  }
 }
